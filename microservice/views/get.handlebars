@@ -1,0 +1,49 @@
+<h1>{{getrequest}}</h1>
+<p>
+For URL query:
+<br>
+<table border = "1px">
+  <tbody>
+  {{#each dataListget}}
+<h1>{{getrequest}}</h1>
+<p>
+For URL query:
+<br>
+<table border = "1px">
+  <tbody>
+  {{#each dataListget}}
+    <tr>
+      <th> {{this.nameget}}
+      <td> {{this.valueget}}
+  {{/each}}
+  </tbody>
+</table>
+
+<p>
+<br>
+<h1>{{postrequest}}</h1>
+<p>
+For JSON data:
+<br>
+<table border = "1px">
+  <tbody>
+  {{#each dataListpost1}}
+    <tr>
+      <th> {{this.namepost1}}
+      <td> {{this.valuepost1}}
+  {{/each}}
+  </tbody>
+</table>
+
+<p>
+For URL query:
+<br>
+<table border = "1px">
+  <tbody>
+  {{#each dataListpost2}}
+    <tr>
+      <th> {{this.namepost2}}
+      <td> {{this.valuepost2}}
+  {{/each}}
+  </tbody>
+</table>

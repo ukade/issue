@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+  
+    <div class="navi">
+	<a href="index.html">Home</a>
+	<a href="maker.html">Manage Makers</a>
+	<a href="location.html">View Locations</a>
+	<a href="nonprofit.html">View Nonprofits</a>
+	<a href="maker_nonprofit.html">View Maker/Nonprofit Relationship</a>
+	<a href="commission.html">Manage Commissions</a>
+	<a href="commission_product.html">View Commission/Product Relationship</a>
+	<a href="product.html">View Products</a>
+      
+    </div>
+<p>
+    <div class="main">
+<h1>Add a Maker</h1><p><p>
+<form>
+<table>
+<tr>
+	<th><label for="first_name">First Name: </label>
+	<th><label for="last_name">Last Name: </label>
+	<th><label for="phone_num">Phone Number: </label>
+	<th><label for="location_id">Location ID: </label>
+<tr>
+	
+	<th><input type="text" name="first_name" id="first_name">
+	<th><input type="text" name="last_name" id="last_name">
+	<th><input type="number" name="phone_num" id="phone_num">
+	<th><input type="number" name="location_id" id="location_id">
+	<th><input type="submit" id="makersubmit">
+</table>		
+</form> 
+<h2>Manage/View Makers</h2>
+<script>
+var sub_results = [];
+console.log(sub_results)
+
+var div = document.createElement("div");
+document.body.appendChild(div);
+var table = document.createElement("table");
+div.appendChild(table);
+var head = document.createElement("thead");
+table.appendChild(head);
+var tbody = document.createElement("tbody");
+table.appendChild(tbody);
+
+var headers = ["Maker ID", "First Name", "Last Name", "Phone Number", "Location ID"]
+
+for (var i = 0; i < 5; i++){
+  var headCell = document.createElement("th");
+  headCell.textContent = headers[i];
+  head.appendChild(headCell);
+  headCell.style.border = "thin solid #000";
+  headCell.style.width = "100px";
+
+}
+makersubmit.addEventListener('click', formSubmit);
+
+var toggle = -1
+
+function formSubmit(event){
+  var req = new XMLHttpRequest();
+  var someTxt = {first_name:null};
+ 
+  someTxt.first_name = document.getElementById('first_name').value;
+  if (someTxt.first_name == "") {
+    return false;
+  }
+  someTxt.last_name = document.getElementById('last_name').value;
+  if (someTxt.last_name == "") {
+    return false;
+  }
+  someTxt.phone_num = document.getElementById('phone_num').value;
+  if (someTxt.phone_num == "") {
+    return false;
+  }
+
+  if (toggle == -1){
+    req.open("GET", "/insert?first_name=" + someTxt.first_name + "&last_name=" + someTxt.last_name + "&phone_num=" + someTxt.phone_num, true);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.send();
+    req.addEventListener('load', populateTable());
+
+}
+  if (toggle > -1){
+     req.open("GET", "/simple-update?id=" + toggle + "&first_name=" + someTxt.first_name + "&last_name=" + someTxt.last_name + "&phone_num=" + someTxt.phone_num, true);
+    req.setRequestHeader('Content-Type','application/json');
+    req.send();
+    toggle = -1;
+}
+};
+
+</script>
+ </div>
+ </body>
+</html>
+
+

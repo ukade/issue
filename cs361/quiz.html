@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz</title>
+	<link rel="stylesheet" href="361style.css" type="text/css">
+  </head>
+  <body>
+    <div class="bar">
+    <div class="dropdown">
+        <button onclick="dropIt()" class="dropbutton"><strong><font size="5">≡ Menu</font></strong></button>
+        <div id="mydrop" class="menu">
+        <a href="index.html" onclick="return leaving_alert(this);">Home</a>
+        <a href="quiz.html"onclick="return leaving_alert(this);">Quiz</a>
+        <a href="glossary.html"onclick="return leaving_alert(this);">Glossary</a>
+        </div>
+    </div>
+    </div>
+    
+        <p></p>
+        
+<div class="content">
+        <h2>Bug Bite Identification Quiz</h2>
+        <div class="quiz-container">
+            <div id="quiz"></div>
+            
+            </div>
+            <div id="results"></div>
+
+        <button id="previous">Previous Question</button>
+        <button id="next">Next Question</button>
+        <button id="submit">Submit Quiz</button>
+        <button id="begin">Begin Quiz</button>
+        
+        
+    </div> 
+        <script src="361quiz.js"></script>
+
+    <script src="361java.js"></script>
+
+
+ 
+  </body>
+</html>

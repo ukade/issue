@@ -1,0 +1,48 @@
+
+body {
+  font-family: "calibri";
+  color: #404040;
+  background-color: #FFFFFF;
+}
+.main {
+  margin-top: 50px;
+}
+
+.navi{
+  top: 0px;
+  width: 105%;
+  margin-left: -10px;
+  margin-right: -10px;
+  background-color: #FFAA80;
+ 
+  position: fixed;
+ 
+}
+
+.navi a{
+  color: #FFF;
+  background-color: #FFAA80;
+  height: 20px;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  
+}
+.navi a:hover{
+  color: #FFEEE6;
+  background-color: #FF884D;
+}
+
+h1, h2 {
+  text-align: left;
+  font-size: 36px;
+  color: #FF884D;
+  letter-spacing: 4px;
+  border-bottom: 1px solid #FF884D;
+}
+
+h2 {
+  font-size: 24px;
+}
+

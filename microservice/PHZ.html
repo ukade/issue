@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <script>
+
+document.addEventListener('DOMContentLoaded', getZone);
+
+function getZone(){
+document.getElementById('zipSubmit').addEventListener('click', function(event){
+var req = new XMLHttpRequest();
+var zipCode = document.getElementById('zip').value;
+req.open("GET", "https://phzmapi.org/" + zipCode +".json", true);
+req.addEventListener('load',function(){
+        if(req.status >= 200 && req.status < 400){
+             var response = JSON.parse(req.responseText);
+          document.getElementById('zone').textContent = response.zone;
+        } else {
+             console.log("Error in network request: " + req.statusText);
+        }});
+req.send(null);
+
+event.preventDefault();
+})
+}
+
+
+</script>
+  </head>
+<body>
+    <form>
+        <label for="zip">Enter Zipcode:</label>
+        <input type="text" name="zip" id="zip"><p>
+        <input type="submit" id="zipSubmit">
+    </form>
+    <div>
+	<p>
+        
+	<span id="zone"><!-- results displayed here --></span><p> 
+    </div>
+  </body>
+</html>
+
